@@ -9,10 +9,11 @@ namespace APITargetMark.Models
         [Required]
         [StringLength(15, MinimumLength = 5)]
         public string Titulo { get; set; }
-        public int MensagensVisualizadas { get; set; }
-        public int MensagensInteragidas { get; set; }
-        public int TaxaConversao { get; set; }
+        public int MensagensVisualizadas { get; set; } 
+        public int MensagensInteragidas { get; set; } 
+        public int TaxaConversao { get; set; } 
         public int CampanhaId { get; set; }
-        
+        public int EmpresaId { get; set; }
+
     }
 }
