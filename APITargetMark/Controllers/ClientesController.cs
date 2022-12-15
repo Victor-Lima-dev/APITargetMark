@@ -79,7 +79,7 @@ namespace APITargetMark.Controllers
         }            
 
         //GET : /Clientes/{id}
-        [HttpGet("{id}")]
+        [HttpGet("Buscar/Cliente/{id}")]
         public async Task<ActionResult<Cliente>> GetCliente(int id)
         {
             var cliente = await _context.Clientes.FindAsync(id);
