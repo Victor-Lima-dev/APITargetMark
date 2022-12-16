@@ -51,7 +51,7 @@ namespace APITargetMark.Controllers
         }
 
         // Get: /Campanhas/{id}
-        [HttpGet("Buscar/{id}")]
+        [HttpGet("Buscar/id/{id}")]
         public async Task<ActionResult<Campanha>> GetCampanha(int id)
         {
             var campanha = await _context.Campanhas.FindAsync(id);
@@ -65,7 +65,7 @@ namespace APITargetMark.Controllers
         }
 
         // DELETE: /DeletarCampanha/{id}
-        [HttpDelete("/DeletarCampanha/{id}")]
+        [HttpDelete("DeletarCampanha/{id}")]
         public async Task<ActionResult<Campanha>> DeleteCampanha(int id)
         {
             var campanha = await _context.Campanhas.FindAsync(id);
@@ -81,7 +81,7 @@ namespace APITargetMark.Controllers
         }
 
         //Get: /Campanhas/BuscarPorNome/{nome}
-        [HttpGet("Buscar/{nome}")]
+        [HttpGet("Buscar/nome/{nome}")]
         public async Task<ActionResult<IEnumerable<Campanha>>> GetCampanhaPorNome(string nome)
         {
             var campanha = await _context.Campanhas.Where(x => x.Nome == nome).ToListAsync();
@@ -95,7 +95,7 @@ namespace APITargetMark.Controllers
         }
 
         //Get: /Campanhas/BuscarPorData/{data}
-        [HttpGet("Buscar/{data}")]
+        [HttpGet("Buscar/data/{data}")]
         public async Task<ActionResult<IEnumerable<Campanha>>> GetCampanhaPorData(DateTime data)
         {
             var campanha = await _context.Campanhas.Where(x => x.Data == data).ToListAsync();
