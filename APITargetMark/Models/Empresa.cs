@@ -10,7 +10,6 @@ public class Empresa
     public int EmpresaId { get; set; }
     [Required]
     [StringLength(15, MinimumLength = 3)]
-    public string Nome { get; set; }
-   
-    public IEnumerable<Campanha> Campanhas { get; set; }
+    public string Nome { get; set; }   
+    public IEnumerable<Campanha>? Campanhas { get; set; }
 }

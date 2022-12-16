@@ -16,11 +16,11 @@ namespace APITargetMark.Context
         public void Seed()
         {
 
-            ////verificar se o banco de dados já foi populado
-            //if (_context.Empresas.Any() || _context.Campanhas.Any() || _context.Relatorios.Any() || _context.Mensagens.Any())
-            //{
-            //    return; //banco de dados já foi populado
-            //}
+            //verificar se o banco de dados já foi populado
+            if (_context.Empresas.Any() || _context.Campanhas.Any() || _context.Relatorios.Any() || _context.Mensagens.Any())
+            {
+                return; //banco de dados já foi populado
+            }
 
             //criar uma empresa
             var empresa = new Empresa
@@ -44,6 +44,8 @@ namespace APITargetMark.Context
                 QuantidadeMensagens = 10,
                 Data = DateTime.Now,
                 PublicoAlvo = "Todos",
+                Empresa = empresa
+
 
             };
 
