@@ -14,12 +14,5 @@ namespace APITargetMark.Context
         public DbSet<Empresa> Empresas { get; set; }
         public DbSet<Campanha> Campanhas { get; set; }
         public DbSet<Relatorio> Relatorios { get; set; }
-
-
-
-
-
-
-
     }
 }

@@ -33,14 +33,14 @@ namespace APITargetMark.Controllers
             //verificando se a mensagem existe
             var mensagemTextoVerifica = await _context.Mensagens.AnyAsync(m => m.Texto == mensagem.Texto);
             var mensagemTituloVerifica = await _context.Mensagens.AnyAsync(m => m.Titulo == mensagem.Titulo);
-            var mensagemCampanhaVerifica = await _context.Mensagens.AnyAsync(m => m.CampanhaId == mensagem.CampanhaId);
-            
+            var mensagemCampanhaVerifica = await _context.Mensagens.AnyAsync(m => m.Campanha == mensagem.Campanha);
+
             if (mensagemTextoVerifica && mensagemTituloVerifica && mensagemCampanhaVerifica)
             {
                 return BadRequest("Mensagem já cadastrada");
             }
 
-            if (_context.Campanhas.Any(e => e.CampanhaId == mensagem.CampanhaId))
+            if (_context.Campanhas.Any(e => e.CampanhaId == mensagem.Campanha.CampanhaId))
             {
                 _context.Mensagens.Add(mensagem);
                 await _context.SaveChangesAsync();
@@ -48,7 +48,7 @@ namespace APITargetMark.Controllers
             }
             else
             {
-                return BadRequest();
+               return BadRequest();
             }
 
 
@@ -58,11 +58,11 @@ namespace APITargetMark.Controllers
         [HttpPut("/EditarMensagem/{id}")]
         public async Task<ActionResult<Mensagem>> PutMensagem(int id, Mensagem mensagem)
         {
-            if (id != mensagem.MensagemId || _context.Campanhas.Any(e => e.CampanhaId == mensagem.CampanhaId))
+            if (id != mensagem.MensagemId || _context.Campanhas.Any(e => e.CampanhaId == mensagem.Campanha.CampanhaId))
             {
                 return BadRequest();
             }
-
+            
             _context.Entry(mensagem).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 

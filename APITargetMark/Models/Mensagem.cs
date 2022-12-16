@@ -9,6 +9,7 @@ namespace APITargetMark.Models
         [Required]
         [StringLength(100, MinimumLength = 5)]
         public string Texto { get; set; }
-        public int CampanhaId { get; set; }
+        //public int CampanhaId { get; set; }
+        public Campanha Campanha { get; set; }
     }
 }
