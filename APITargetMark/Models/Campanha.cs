@@ -22,7 +22,7 @@ namespace APITargetMark.Models
         [StringLength(15, MinimumLength = 5)]
         public string PublicoAlvo { get; set; }
 
-        public Empresa Empresa { get; set; }
+       //public Empresa Empresa { get; set; }
        // public int EmpresaId { get; set; }
 
 
