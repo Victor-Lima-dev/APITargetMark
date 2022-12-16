@@ -1,13 +1,17 @@
 ﻿using APITargetMark.Context;
 using APITargetMark.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace APITargetMark.Controllers
 {
+    
     [Route("[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CampanhasController : ControllerBase
     {
         private readonly AppDbContext _context;
